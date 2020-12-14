@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(PROPRO-gtest)
+project(PRO-gtest)
 
 #set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")  for Qt5
 set(CMAKE_CXX_STANDARD 17)            
