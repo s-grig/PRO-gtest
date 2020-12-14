@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(PRO)
+project(PROPRO-gtest)
 
 #set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")  for Qt5
 set(CMAKE_CXX_STANDARD 17)            
@@ -92,9 +92,9 @@ endif(WIN32)
 if(BUILD_TESTS)
   enable_testing()
   add_subdirectory(third-party/gtest)
-  file(GLOB \PRO_TEST_SOURCES tests/*.cpp)
-  add_executable(check \${\PRO_TEST_SOURCES})
-  target_link_libraries(check \PRO gtest_main)
+  file(GLOB \PRO-gtest_TEST_SOURCES tests/*.cpp)
+  add_executable(check \${\PRO-gtest_TEST_SOURCES})
+  target_link_libraries(check \PRO-gtest gtest_main)
 
   add_test(NAME check COMMAND check)
 endif()
