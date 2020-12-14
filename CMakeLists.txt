@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(KP)
+project(PRO)
 
 #set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")  for Qt5
 set(CMAKE_CXX_STANDARD 17)            
@@ -12,10 +12,11 @@ option(BUILD_TESTS "Build tests" OFF)
 find_package(SFML REQUIRED COMPONENTS system window graphics)
 find_package(Qt5Gui CONFIG REQUIRED)
 find_package(Qt5Widgets CONFIG REQUIRED)
-#find_package(GTest CONFIG REQUIRED)
 
 
 if(WIN32)
+   find_package(GTest CONFIG REQUIRED)
+
    find_package(Tesseract CONFIG REQUIRED)
 endif(WIN32)
    
@@ -91,9 +92,9 @@ endif(WIN32)
 if(BUILD_TESTS)
   enable_testing()
   add_subdirectory(third-party/gtest)
-  file(GLOB \${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
-  add_executable(check \${\${PROJECT_NAME}_TEST_SOURCES})
-  target_link_libraries(check \${PROJECT_NAME} gtest_main)
+  file(GLOB \PRO_TEST_SOURCES tests/*.cpp)
+  add_executable(check \${\PRO_TEST_SOURCES})
+  target_link_libraries(check \PRO gtest_main)
 
   add_test(NAME check COMMAND check)
 endif()
