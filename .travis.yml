@@ -104,6 +104,7 @@ script:
   ######################## build main ###################################  
   - mkdir build && cd build
   - cmake -DBUILD_TESTS=ON ../
+  - cmake --build .
   - cmake --build . --target test
   - build/check
   - cmake --build . --target test -- ARGS=--verbose
