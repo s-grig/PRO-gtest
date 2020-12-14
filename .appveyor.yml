@@ -22,11 +22,11 @@ install:
   - ps: Start-FileDownload 'https://stasg.ru/tv/vcpkg-export-20201130-003734.7z'
   - 7z x C:\Tools\vcpkg\vcpkg-export-20201130-003734.7z -o"C:\Tools\vcpkg\"
   #- cd c:\tools\vcpkg
-  - cd C:\  
-  - mkdir -p \vcpkg\buildtrees\tesseract\src\4.1.1-3a7d5a1d2b.clean\tessdata
+  #- cd C:\  
+  #- mkdir -p \vcpkg\buildtrees\tesseract\src\4.1.1-3a7d5a1d2b.clean\tessdata
   #- cd \vcpkg\buildtrees\tesseract\src\4.1.1-3a7d5a1d2b.clean\tessdata
   #- ps: Start-FileDownload 'https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata'
-
+  - cd C:\projects\PRO-gtest
 before_build:
     - cmake -G "Visual Studio 15 2017 Win64" .
 build:
@@ -35,7 +35,7 @@ test_script:
   - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
 build_script:
   
-  - cd C:\projects\PRO-gtest
+  
   - mkdir build
   - cd build
   - cmake .. "-DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\vcpkg-export-20201130-003734\scripts\buildsystems\vcpkg.cmake"
