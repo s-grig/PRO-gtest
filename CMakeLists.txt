@@ -83,7 +83,7 @@ if(WIN32)
  ##?#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
  target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
- target_link_libraries(unittest PRIVATE sfml-system sfml-window sfml-graphics)
+ #target_link_libraries(unittest PRIVATE sfml-system sfml-window sfml-graphics)
 endif(WIN32)
 
 #enable_testing()
