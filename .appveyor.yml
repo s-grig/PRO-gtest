@@ -2,7 +2,7 @@ version: 1.0.{build}
 
 image: Visual Studio 2019 
 platform:
-  - x86
+  #- x86
   - x64
 configuration:
     - Debug
@@ -12,6 +12,9 @@ matrix:
     fast_finish: false
 
 install:
+############# Gtest ########
+  - git submodule update --init --recursive
+
   - cd C:\Tools\vcpkg
   - vcpkg list
   #- vcpkg install sfml tesseract qt5-imageformats
@@ -24,8 +27,14 @@ install:
   - cd \vcpkg\buildtrees\tesseract\src\4.1.1-3a7d5a1d2b.clean\tessdata
   - ps: Start-FileDownload 'https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata'
 
-
+before_build:
+    - cmake -G "Visual Studio 15 2017 Win64" .
+build:
+  project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
+test_script:
+  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
 build_script:
+  
   - cd C:\projects\PRO-gtest
   - mkdir build
   - cd build
