@@ -12,7 +12,7 @@ option(BUILD_TESTS "Build tests" OFF)
 find_package(SFML REQUIRED COMPONENTS system window graphics)
 find_package(Qt5Gui CONFIG REQUIRED)
 find_package(Qt5Widgets CONFIG REQUIRED)
-find_package(GTest CONFIG REQUIRED)
+#find_package(GTest CONFIG REQUIRED)
 
 
 if(WIN32)
