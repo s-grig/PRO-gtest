@@ -32,7 +32,7 @@ before_build:
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
 test_script:
-  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
+  
 build_script:
   
   
@@ -40,6 +40,7 @@ build_script:
   - cd build
   - cmake .. "-DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\vcpkg-export-20201130-003734\scripts\buildsystems\vcpkg.cmake"
   - cmake --build .  --config Release
+  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
 #  - build\Debug\main.exe
   - echo "Testing_1 main is done"
  
