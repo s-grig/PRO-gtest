@@ -83,9 +83,20 @@ if(WIN32)
  target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
  target_link_libraries(unittest PRIVATE sfml-system sfml-window sfml-graphics)
-
 endif(WIN32)
 
-enable_testing()
-add_test(NAME unit_tests COMMAND tests) 
+#enable_testing()
+#add_test(NAME unit_tests COMMAND tests) 
+
+if(BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(third-party/gtest)
+  file(GLOB \${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
+  add_executable(check \${\${PROJECT_NAME}_TEST_SOURCES})
+  target_link_libraries(check \${PROJECT_NAME} gtest_main)
+
+  add_test(NAME check COMMAND check)
+endif()
+
+
 
