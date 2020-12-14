@@ -28,7 +28,7 @@ install:
   - ps: Start-FileDownload 'https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata'
 
 before_build:
-    - cmake -G "Visual Studio 15 2017 Win64" .
+    - cmake -G "Visual Studio 15 2019 Win64" .
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
 test_script:
