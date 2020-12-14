@@ -103,6 +103,6 @@ script:
 
   ######################## build main ###################################  
   - mkdir build && cd build
-  - cmake ..
-  - cmake --build . --config Release
+  - cmake -DBUILD_TESTS=ON ../
+  - cmake --build . --target test
   - echo "Main application testing is done"
