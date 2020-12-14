@@ -13,7 +13,7 @@ matrix:
 
 install:
 ############# Gtest ########
-  #- git submodule update --init --recursive
+  - git submodule update --init --recursive
 
   - cd C:\Tools\vcpkg
   - vcpkg list
